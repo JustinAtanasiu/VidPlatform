@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html>
-<body>
-
-<video width="1000" controls>
-  <source src="example.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
-
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+        <!-- build:css(.) css/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) css/vidplatform.css -->
+        <link rel="stylesheet" href="css/style.css" />
+        <!-- endbuild -->
+        
+        <title>VidPlatform</title>
+    </head>
+    <body>
+        <div id="loader" class="loader">
+          <div class="loading-message"></div>
+        </div>
+        <div id="main"></div>
+        <div id="menu"></div>
+        <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
+    </body>    
 </html>

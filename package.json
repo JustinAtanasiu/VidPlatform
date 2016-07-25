@@ -1,0 +1,28 @@
+{
+  "name": "vidplatform",
+  "version": "0.0.0",
+  "description": "Platform for video sharing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustinAtanasiu/VidPlatform.git"
+  },
+  "license": "UNLICENSED",
+  "private": "true",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "grunt": "^0.4.5",
+    "grunt-bower-requirejs": "^2.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-compress": "^1.3.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-dropbox": "^0.1.3",
+    "grunt-regex-replace": "^0.2.9",
+    "grunt-ssh": "^0.12.9",
+    "grunt-usemin": "^3.1.1"
+  }
+}

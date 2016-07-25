@@ -1,0 +1,25 @@
+{
+  "name": "vidplatform",
+  "authors": [
+    "Atanasiu Justin <justin.atanasiu@gmail.com",
+    "Constantin Gorgan <constantin.gorgan@gmail.com"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "backbone": "~1.2.3",
+    "requirejs": "~2.1.15",
+    "requirejs-plugins": "~1.0.2"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css"
+      ]
+    }
+  }
+}
