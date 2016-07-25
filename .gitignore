@@ -1,0 +1,9 @@
+*~
+/node_modules
+/bower_components
+npm-debug.log
+/.sass-cache
+/.tmp
+/dist
+.brackets.json
+.gitignore.swp
