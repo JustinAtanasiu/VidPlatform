@@ -7,8 +7,32 @@ define([
   'text!../../../templates/mainview/mainview.html'
 ], function ($, _, Backbone, mainviewTemplate) {
   'use strict'
+  
+//  var userModel = Backbone.Model.extend({
+//    idAttribute: "_id",
+//
+//    initialize: function () {
+//      var that = this;
+//
+//      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+//        options.crossDomain ={
+//          crossDomain: true
+//        };
+//      });
+//    },
+//    urlRoot: 'http://localhost:7211/api/signUp'
+//  });
+//  var userCollection = Backbone.Collection.extend({
+//      model: userModel
+//      , url: 'http://localhost:7211/api/users'
+//  });
+//  
+//  var newUser = new userModel({ username: 'xxx', password: 'blah' });
+//  newUser.save();
+//  new userCollection().fetch();
 
   var MainviewView = Backbone.View.extend({
+    
     render: function () {
       var template = _.template(mainviewTemplate)
       this.$el.html(template({
@@ -16,7 +40,7 @@ define([
       }))
       return this
     }
-  })
+  })  
 
   return MainviewView
 })
