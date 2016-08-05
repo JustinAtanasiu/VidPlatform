@@ -8,37 +8,44 @@ define([
 ], function ($, _, Backbone, mainviewTemplate) {
   'use strict'
   
-//  var userModel = Backbone.Model.extend({
-//    idAttribute: "_id",
-//
-//    initialize: function () {
-//      var that = this;
-//
-//      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-//        options.crossDomain ={
-//          crossDomain: true
-//        };
-//      });
-//    },
-//    urlRoot: 'http://localhost:7211/api/signUp'
-//  });
-//  var userCollection = Backbone.Collection.extend({
-//      model: userModel
-//      , url: 'http://localhost:7211/api/users'
-//  });
-//  
-//  var newUser = new userModel({ username: 'xxx', password: 'blah' });
-//  newUser.save();
-//  new userCollection().fetch();
+  var userModel = Backbone.Model.extend({
+    idAttribute: "_id",
+
+    initialize: function () {
+      var that = this;
+
+      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+        options.crossDomain ={
+          crossDomain: true
+        };
+      });
+    },
+    urlRoot: 'http://localhost:7211/api/signUp'
+  });
+  
 
   var MainviewView = Backbone.View.extend({
-    
+    events: {
+      'submit #signUpForm': 'signUp'
+    },
     render: function () {
       var template = _.template(mainviewTemplate)
       this.$el.html(template({
 
       }))
       return this
+    },
+    signUp: function(){
+      var userCollection = Backbone.Collection.extend({
+      model: userModel
+      , url: 'http://localhost:7211/api/users'
+      });
+      var username = $("#email").val()
+      var password = $("password").val()
+      var newUser = new userModel({ username: username, password: password })
+      newUser.save();
+      new userCollection().fetch();
+      $('#signUpModal').modal('hide');
     }
   })  
 

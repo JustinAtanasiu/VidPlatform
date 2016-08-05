@@ -1,4 +1,19 @@
-<body>
+<div id="signUpModal" class="modal fade">
+    <div class="col-xs-6">
+        <div id="logbox">
+            <form id="signUpForm" method="post">
+                <h1>Create an Account</h1>
+                <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
+                <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                <div class="widthMax btn-group">
+                  <btn type="submit" class="btn btn-primary pull-left">Sign me up!</btn>
+                  <btn data-dismiss="modal" class="btn btn-warning pull-right">Close</btn>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -12,7 +27,6 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Already have an account?</p></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
 			<ul id="login-dp" class="dropdown-menu">
@@ -21,8 +35,7 @@
 							<div class="col-md-12">
 								Login via
 								<div class="social-buttons">
-									<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+									<a href="#" style="width:100%;" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
 								</div>
                                 or
 								 <form class="form" role="form" accept-charset="UTF-8" id="login-nav">
@@ -33,21 +46,16 @@
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputPassword2">Password</label>
 											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                             <div class="help-block text-right"><a href="">Forgot the password ?</a></div>
 										</div>
 										<div class="form-group">
 											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
 										</div>
-										<div class="checkbox">
-											 <label>
-											 <input type="checkbox"> keep me logged-in
-											 </label>
-										</div>
 								 </form>
 							</div>
 							<div class="bottom text-center">
-								New here ? <a href="#"><b>Join Us</b></a>
-							</div>
+								New here ? <a data-toggle="modal" data-target="#signUpModal" name="signUpBtn" id="signUpBtn"><b>Join Us</b></a>
+							</div>                                              
 					 </div>
 				</li>
 			</ul>
@@ -56,8 +64,8 @@
     </div>
   </div>
 </nav>
-</body>
+
 <video style="width: 100%;" style="height: 100%;" controls>
   <source src="example.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
-</video>
+</video> 
