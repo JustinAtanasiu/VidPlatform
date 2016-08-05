@@ -231,3 +231,13 @@ body,html{
 .widthMax {
   width:100%;
 }
+.dropdown-menu.fade {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+/*fade pentru dropdown*/
+.open > .dropdown-menu.fade {
+  pointer-events: auto;
+  opacity: 1;
+}                 

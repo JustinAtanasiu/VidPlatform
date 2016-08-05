@@ -66,10 +66,10 @@ define([
       var promise = loginUser.save()
       $.when(promise).then(function(resp){
         if(resp.success){
-          $('#exampleInputEmail2') = '';
-          $('#exampleInputPassword2') = '';
-          $('#login-dp').dropdown('toggle');
-        } else{
+          e.stopPropagation()
+          $('.dropdown').removeClass('open');
+        }
+        else{
            var validator2 = $('#login-nav').validate();
             validator2.showErrors({
             "exampleInputPassword2": "Wrong credentials."
