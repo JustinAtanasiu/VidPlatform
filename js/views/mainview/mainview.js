@@ -5,8 +5,9 @@ define([
   'underscore',
   'backbone',
   'md5',
+  'jquery-validator',
   'text!../../../templates/mainview/mainview.html'
-], function ($, _, Backbone, md5, mainviewTemplate) {
+], function ($, _, Backbone, md5, jqueryvalidator, mainviewTemplate) {
   'use strict'
   
   var UserModel = Backbone.Model.extend({
@@ -26,27 +27,60 @@ define([
   
   var checkUserModel = Backbone.Model.extend({
     idAttribute: '_id',
-
-    initialize: function () {
+     initialize: function () {
       var that = this
 
       $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         options.crossDomain = {
           crossDomain: true
         }
-      }) 
+      })
     },
     urlRoot: 'http://localhost:7211/api/checkUsers'
   })
   
+  var loginUserModel = Backbone.Model.extend({
+    idAttribute: '_id',
+     initialize: function () {
+      var that = this
+
+      $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+        options.crossDomain = {
+          crossDomain: true
+        }
+      })
+    },
+    urlRoot: 'http://localhost:7211/api/authenticate'
+  })
+  
   var MainviewView = Backbone.View.extend({
     events: {
-      'submit #signUpForm': 'signUp'
+      'submit #signUpForm': 'signUp',
+      'submit #login-nav': 'login'
+    },
+    login: function(e) {
+      e.preventDefault();
+      var username = $('#exampleInputEmail2').val()
+      var password = md5.hash($('#exampleInputPassword2').val())
+      var loginUser = new loginUserModel({username: username, password: password})
+      var promise = loginUser.save()
+      $.when(promise).then(function(resp){
+        if(resp.success){
+          $('#exampleInputEmail2') = '';
+          $('#exampleInputPassword2') = '';
+          $('#login-dp').dropdown('toggle');
+        } else{
+           var validator2 = $('#login-nav').validate();
+            validator2.showErrors({
+            "exampleInputPassword2": "Wrong credentials."
+          });;
+        }
+      })
     },
     render: function () {
       var template = _.template(mainviewTemplate)
       this.$el.html(template({
-
+        
       }))
       return this
     },
@@ -62,7 +96,10 @@ define([
           newUser.save()          
           $('#signUpModal').modal('hide')
         } else {
-          
+          var validator = $('#signUpForm').validate();
+          validator.showErrors({
+            "email": "User already exists with this email."
+          });;
         }
         
       });

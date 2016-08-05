@@ -32,7 +32,8 @@ requirejs.config({
     "Markdown.Converter": "../bower_components/requirejs-plugins/lib/Markdown.Converter",
     text: "../bower_components/requirejs-plugins/lib/text",
     "responsive-img": "../bower_components/responsive-img.js/responsive-img",
-    "requirejs-text": "../bower_components/requirejs-text/text"
+    "requirejs-text": "../bower_components/requirejs-text/text",
+    'jquery-validator': "../bower_components/jquery-validation/dist/jquery.validate"
   },
   packages: [
 
