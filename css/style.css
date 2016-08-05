@@ -2,6 +2,14 @@ body,html{
     height: 100%;
   }
 
+.grayNavbar {
+  background-color: #F2F2F2;
+  border-width: 0 0 1px 0;
+  border-color: #C0C4C4;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+  
   nav.sidebar, .main{
     -webkit-transition: margin 200ms ease-out;
       -moz-transition: margin 200ms ease-out;

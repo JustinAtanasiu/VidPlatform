@@ -1,20 +1,5 @@
-<div id="signUpModal" class="modal fade">
-    <div class="col-xs-6">
-        <div id="logbox">
-            <form id="signUpForm" method="post">
-                <h1>Create an Account</h1>
-                <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
-                <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-                <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
-                <div class="widthMax btn-group">
-                  <btn type="submit" class="btn btn-primary pull-left">Sign me up!</btn>
-                  <btn data-dismiss="modal" class="btn btn-warning pull-right">Close</btn>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> 
-<nav class="navbar navbar-default navbar-inverse" role="navigation">
+
+<nav class="navbar navbar-default navbar-inverse grayNavbar" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -49,20 +34,38 @@
                                              <div class="help-block text-right"><a href="">Forgot the password ?</a></div>
 										</div>
 										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+											 <button type="submit" class="btn btn-primary btn-block">Login</button>
 										</div>
 								 </form>
 							</div>
 							<div class="bottom text-center">
 								New here ? <a data-toggle="modal" data-target="#signUpModal" name="signUpBtn" id="signUpBtn"><b>Join Us</b></a>
-							</div>                                              
+							</div>    
+                       
 					 </div>
 				</li>
 			</ul>
         </li>
       </ul>
+      <div id="signUpModal" class="modal fade">
+      <div class="col-xs-6">
+        <div id="logbox">
+            <form id="signUpForm" method="post">
+                <h1>Create an Account</h1>
+                <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
+                <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                <div class="widthMax btn-group">
+                  <button type="submit" class="btn btn-primary pull-left">Sign me up!</button>
+                  <button data-dismiss="modal" class="btn btn-warning pull-right">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
     </div>
   </div>
+  
 </nav>
 
 <video style="width: 100%;" style="height: 100%;" controls>
