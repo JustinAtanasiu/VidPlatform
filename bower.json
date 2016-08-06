@@ -14,7 +14,7 @@
     "backbone": "~1.2.3",
     "requirejs": "~2.1.15",
     "requirejs-plugins": "~1.0.2",
-    "jquery-validation" "~3.1.0"
+    "jquery-validation": "~3.1.0"
   },
   "overrides": {
     "bootstrap": {
