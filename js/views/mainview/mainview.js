@@ -41,7 +41,8 @@ define([
   
   var MainviewView = Backbone.View.extend({
     events: {
-      'submit #signUpForm': 'signUp'
+      'submit #signUpForm': 'signUp',
+      'click #toggleSideNav': 'toggleSideNav'
     },
     render: function () {
       var template = _.template(mainviewTemplate)
@@ -49,6 +50,16 @@ define([
 
       }))
       return this
+    },
+    toggleSideNav: function () {
+      var mySidenav = document.getElementById("mySidenav")
+      if (document.getElementById("mySidenav").classList.contains('openedSideNav')) {
+        document.getElementById("mySidenav").classList.remove('openedSideNav');
+        mySidenav.style.width = "0px"
+      } else {
+        document.getElementById("mySidenav").classList.add('openedSideNav');
+        mySidenav.style.width = "250px"
+      }
     },
     signUp: function (e) {
       e.preventDefault();

@@ -9,140 +9,81 @@ body,html{
   border-radius: 0;
   margin-bottom: 0;
 }
+
+.navbar-header {
+  line-height: 50px;
+}
+
+#toggleSideNav {
+  margin-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
   
-  nav.sidebar, .main{
-    -webkit-transition: margin 200ms ease-out;
-      -moz-transition: margin 200ms ease-out;
-      -o-transition: margin 200ms ease-out;
-      transition: margin 200ms ease-out;
-  }
+/* start of CSS for side menu */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 51px;
+    left: 0;
+    background-color: #F2F2F2;
+    border: solid #C0C4C4;
+    border-width: 1px;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15px;
+}
 
-  .main{
-    padding: 10px 10px 0 10px;
-  }
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #9d9d9d;
+    display: block;
+    transition: 0.3s
+}
 
- @media (min-width: 765px) {
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
 
-    .main{
-      position: absolute;
-      width: calc(100% - 40px); 
-      margin-left: 40px;
-      float: right;
-    }
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
 
-    nav.sidebar:hover + .main{
-      margin-left: 200px;
-    }
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
-    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-      margin-left: 0px;
-    }
-
-    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
-      text-align: center;
-      width: 100%;
-      margin-left: 0px;
-    }
-    
-    nav.sidebar a{
-      padding-right: 13px;
-    }
-
-    nav.sidebar .navbar-nav > li:first-child{
-      border-top: 1px #e5e5e5 solid;
-    }
-
-    nav.sidebar .navbar-nav > li{
-      border-bottom: 1px #e5e5e5 solid;
-    }
-
-    nav.sidebar .navbar-nav .open .dropdown-menu {
-      position: static;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: transparent;
-      border: 0;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-
-    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
-      padding: 0 0px 0 0px;
-    }
-
-    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-      color: #777;
-    }
-
-    nav.sidebar{
-      width: 200px;
-      height: 100%;
-      margin-left: -160px;
-      float: left;
-      margin-bottom: 0px;
-    }
-
-    nav.sidebar li {
-      width: 100%;
-    }
-
-    nav.sidebar:hover{
-      margin-left: 0px;
-    }
-
-    .forAnimate{
-      opacity: 0;
-    }
-  }
-   
-  @media (min-width: 1330px) {
-
-    .main{
-      width: calc(100% - 200px);
-      margin-left: 200px;
-    }
-
-    nav.sidebar{
-      margin-left: 0px;
-      float: left;
-    }
-
-    nav.sidebar .forAnimate{
-      opacity: 1;
-    }
-  }
-
-  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
-    color: #CCC;
-    background-color: transparent;
-  }
-
-  nav:hover .forAnimate{
-    opacity: 1;
-  }
-  section{
-    padding-left: 15px;
-  }
-  
+.navbar-brand {
+    float: none
+}
+/* end of CSS for side menu */
  
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
-    overflow:hidden;
-    background-color:rgba(255,255,255,.8);
+    overflow: hidden;
+    background-color: rgba(255,255,255,.8);
 }
 #login-dp .help-block{
-    font-size:12px    
+    font-size: 12px    
 }
 #login-dp .bottom{
-    background-color:rgba(255,255,255,.8);
-    border-top:1px solid #ddd;
-    clear:both;
-    padding:14px;
+    background-color: rgba(255,255,255,.8);
+    border-top: 1px solid #ddd;
+    clear: both;
+    padding: 14px;
 }
 #login-dp .social-buttons{
-    margin:12px 0    
+    margin: 12px 0    
 }
 #login-dp .social-buttons a{
     width: 49%;
@@ -152,19 +93,19 @@ body,html{
 }
 .btn-fb{
     color: #fff;
-    background-color:#3b5998;
+    background-color: #3b5998;
 }
 .btn-fb:hover{
     color: #fff;
-    background-color:#496ebc 
+    background-color: #496ebc 
 }
 .btn-tw{
     color: #fff;
-    background-color:#55acee;
+    background-color: #55acee;
 }
 .btn-tw:hover{
     color: #fff;
-    background-color:#59b5fa;
+    background-color: #59b5fa;
 }
 @media(max-width:768px){
     #login-dp{
@@ -173,7 +114,7 @@ body,html{
     }
     #login-dp .bottom{
         background-color: inherit;
-        border-top:0 none;
+        border-top: 0 none;
     }
 }
 
@@ -229,5 +170,5 @@ body,html{
       -webkit-box-shadow: 0 0 0 1000px white inset;
   }
 .widthMax {
-  width:100%;
+  width: 100%;
 }
