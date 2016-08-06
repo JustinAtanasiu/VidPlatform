@@ -26,7 +26,7 @@
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputPassword2">Password</label>
 											 <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a>Forgot the password ?</a></div>
+                                             <div class="help-block text-right"><a id="forgotPassBtn" data-toggle="modal" data-target="#forgotPassModal">Forgot the password ?</a></div>
 										</div>
 										<div class="form-group">
 											 <button type="submit"  class="btn btn-primary btn-block" id="loginSubmitBtn">Login</button>
@@ -43,23 +43,37 @@
         </li>
       </ul>
       <div id="signUpModal" class="modal fade">
-      <div class="col-xs-6">
-        <div id="logbox"> 
-            <div class="blackOverlay faSpinSignUp"></div>
-            <i id="faSpinnerSignUp" class="faSpinSignUp fa fa-spinner fa-3x fa-spin"></i>
-            <form id="signUpForm" method="post">
-                <h1>Create an Account</h1>
-                <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
-                <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-                <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
-                <div class="widthMax centerFa btn-group">
-                  <button type="submit" class="btn btn-primary pull-left">Sign me up!</button>
-                  <button data-dismiss="modal" class="btn btn-warning pull-right">Close</button>
-                </div>
-            </form>
+        <div class="col-xs-6">
+          <div id="logbox"> 
+              <i id="faSpinnerSignUp" class="centerFa faSpinSignUp fa fa-spinner fa-3x fa-spin"></i>
+              <form id="signUpForm" method="post">
+                  <h1>Create an Account</h1>
+                  <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
+                  <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                  <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                  <div class="widthMax btn-group">
+                    <button type="submit" class="btn btn-primary pull-left">Sign me up!</button>
+                    <button data-dismiss="modal" class="btn btn-warning pull-right">Close</button>
+                  </div>
+              </form>
+          </div>
         </div>
-    </div>
-</div> 
+      </div>
+      <div id="forgotPassModal" class="modal fade">
+        <div class="col-xs-6">
+          <div id="logbox"> 
+              <i id="faSpinnerForgotPass" class="centerFa faSpinSignUp fa fa-spinner fa-3x fa-spin"></i>
+              <form id="forgotPassForm" method="post">
+                  <h1>Password reset</h1>
+                  <input id="emailForgotPass" name="emailForgotPass" type="email" required="required" placeholder="Email address" class="input pass"/>     <p id="resetPassMessage" name="resetPassMessage" readonly class="pass hide"></p>         
+                  <div class="widthMax btn-group">
+                    <button type="submit" class="btn btn-primary pull-left" id="resetPassBtn">Reset pass!</button>
+                    <button data-dismiss="modal" class="btn btn-warning pull-right" id="closeForgotPasswordBtn">Close</button>
+                  </div>
+              </form>
+          </div>
+        </div>        
+      </div>
     </div>
   </div>
 </nav>

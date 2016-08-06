@@ -144,7 +144,10 @@ body,html{
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-  text-align: center;
+}
+
+#logbox .error{
+  margin-left:40px;
 }
 
 h1 {
@@ -188,7 +191,7 @@ h1, input {
 .widthMax {
   width: 100%;
 }
-.centerFa{  
+.centerFa {  
   text-align: center;
 }
 .dropdown-menu.fade {
@@ -221,13 +224,12 @@ i#faSpinnerSignUp {
     transform: translateY(-50%);
 }
 
-.blackOverlay {
-    width: 340px;
-    padding: 10px;
-    /* margin: 50px auto; */
-    height: 75%;
+i#faSpinnerForgotPass {
     position: absolute;
-    color: black;
-    background: rgba(0,0,0,0.5);
-    z-index: 10;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    transform: translateY(-50%);
 }

@@ -46,12 +46,31 @@ define([
     },
     urlRoot: 'http://localhost:7211/api/authenticate'
   })
+  
+  var forgotPassModel = Backbone.Model.extend({
+    idAttribute: '_id',
+    initialize: function () {
+      $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+        options.crossDomain = {
+          crossDomain: true
+        }
+      })
+    },
+    urlRoot: 'http://localhost:7211/api/forgotPassword'
+  })
 
   var MainviewView = Backbone.View.extend({
     events: {
       'submit #signUpForm': 'signUp',
       'click #toggleSideNav': 'toggleSideNav',
-      'submit #login-nav': 'login'
+      'submit #login-nav': 'login',
+      'submit #forgotPassForm': 'forgotPass',
+      'click #closeForgotPasswordBtn': 'restorePasswordForm',
+      'click #forgotPassBtn': 'closeDropdown'
+    },
+    closeDropdown: function (e) {
+      e.preventDefault()
+      $('.dropdown').removeClass('open')
     },
     login: function (e) {
       e.preventDefault()
@@ -70,6 +89,41 @@ define([
           })
         }
       })
+    },    
+    forgotPass: function (e) {
+      e.preventDefault();
+      $("#faSpinnerForgotPass").removeClass('faSpinSignUp')
+      var email = $('#emailForgotPass').val();
+      var forgotPass = new forgotPassModel({email: email})
+      var promise = forgotPass.save()        
+      $('#resetPassMessage').removeClass('hide')
+      $('#emailForgotPass').addClass('hide')     
+      $('#resetPassBtn').hide()
+      $.when(promise).then(function(resp){
+        if(resp.status === 200){
+          $('#resetPassMessage').text('A verification email has been sent at ' + $('#emailForgotPass').val()) 
+        }
+//        //a verification email was sent to this address
+        else {
+          $('#resetPassMessage').text('An unexpected error occured. Please try again later.') 
+        }
+        //invalid email
+        $("#faSpinnerForgotPass").addClass('faSpinSignUp')
+          $('#emailForgotPass').val('')
+      })  
+    },      
+    restorePasswordForm: function () {
+        $("#resetPassMessage").delay(1000).queue(function(){
+          $(this).addClass("hide").dequeue();
+        });   
+      
+        $("#emailForgotPass").delay(1000).queue(function(){
+          $(this).removeClass("hide").dequeue();
+        });
+        $('#resetPassBtn').delay(1000).show(0);
+        $("#resetPassMessage").delay(1000).queue(function(){
+          $(this).text("").dequeue();
+        });
     },
     render: function () {
       var template = _.template(mainviewTemplate)
