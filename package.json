@@ -24,5 +24,8 @@
     "grunt-regex-replace": "^0.2.9",
     "grunt-ssh": "^0.12.9",
     "grunt-usemin": "^3.1.1"
+  },
+  "dependencies": {
+    "jquery.tipsy": "^1.0.3"
   }
 }

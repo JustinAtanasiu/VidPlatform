@@ -8,28 +8,28 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-			<ul id="login-dp" class="dropdown-menu">
+          <btn class="dropdown-toggle btn btn-primary pull-right" data-toggle="dropdown"><b>Sign In</b> </btn>
+			<ul id="login-dp" class="dropdown-menu fade" >
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
 								Login via
 								<div class="social-buttons">
-									<a href="#" style="width:100%;" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+									<a style="width:100%;" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
 								</div>
                                 or
-								 <form class="form" role="form" accept-charset="UTF-8" id="login-nav">
+								 <form method="post" id="login-nav">
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+											 <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" placeholder="Email address" required>
 										</div>
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputPassword2">Password</label>
-											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">Forgot the password ?</a></div>
+											 <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password" required>
+                                             <div class="help-block text-right"><a>Forgot the password ?</a></div>
 										</div>
 										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Login</button>
+											 <button type="submit"  class="btn btn-primary btn-block" id="loginSubmitBtn">Login</button>
 										</div>
 								 </form>
 							</div>
