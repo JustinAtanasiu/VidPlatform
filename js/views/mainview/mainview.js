@@ -37,7 +37,7 @@ define([
       })
     },
     urlRoot: 'http://localhost:7211/api/checkUsers'
-  })
+  })  
   
   var loginUserModel = Backbone.Model.extend({
     idAttribute: '_id',
@@ -86,7 +86,7 @@ define([
     },
     signUp: function (e) {
       e.preventDefault();
-      var username = $('#email').val()
+      var username = $('#email').val()            
       var password = md5.hash($('#password').val())
       var checkUser = new checkUserModel({username: username})
       var promise = checkUser.save()
@@ -95,14 +95,20 @@ define([
           var newUser = new UserModel({ username: username, password: password })
           newUser.save()          
           $('#signUpModal').modal('hide')
-        } else {
+        } else if (resp.status === 400) {
           var validator = $('#signUpForm').validate();
           validator.showErrors({
             "email": "User already exists with this email."
           });;
-        }
-        
-      });
+        } else if (resp.status === 404){
+          var validator = $('#signUpForm').validate();
+          validator.showErrors({
+            "email": "Invalid email."
+          });;
+        }       
+      });          
+      
+      
     }
   })
 
