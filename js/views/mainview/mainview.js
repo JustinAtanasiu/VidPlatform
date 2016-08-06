@@ -91,7 +91,23 @@ define([
     signUp: function (e) {
       e.preventDefault()
       $("#faSpinnerSignUp").removeClass('faSpinSignUp')
-      var username = $('#email').val()
+      var username = $('#email').val()     
+      if($('#password').val() !== $('#password2').val()){
+         var validator = $('#signUpForm').validate()
+         validator.showErrors({
+            'password2': "Password fields didn't match."
+          })
+          $("#faSpinnerSignUp").addClass('faSpinSignUp')
+          return true
+      }
+      if($('#password').val().length<6){
+        var validator = $('#signUpForm').validate()
+          validator.showErrors({
+            'password': 'Password must have at least 6 characters.'
+          })
+          $("#faSpinnerSignUp").addClass('faSpinSignUp')
+          return true
+      }
       var password = md5.hash($('#password').val())
       var checkUser = new CheckUserModel({username: username})
       var promise = checkUser.save()

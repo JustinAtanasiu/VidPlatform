@@ -204,4 +204,9 @@ h1, input {
 .faSpinSignUp {
   display:none;
 }
+/* clasa pentru afisare spinner sau nu */
+.marginTop8px{
+  margin-top: 8px;
+}
+/* clasa pentru butonul de sign up de sus */
 
