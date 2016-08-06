@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <span id="toggleSideNav">☰</span>
-      <a class="navbar-brand" href="#">VidPlatform</a>
+      <a class="navbar-brand">VidPlatform</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -43,21 +43,22 @@
         </li>
       </ul>
       <div id="signUpModal" class="modal fade">
-        <div class="col-xs-6">
-          <div id="logbox">
-              <form id="signUpForm" method="post">
-                  <h1>Create an Account</h1>
-                  <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
-                  <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-                  <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
-                  <div class="widthMax btn-group">
-                    <button type="submit" class="btn btn-primary pull-left">Sign me up!</button>
-                    <button data-dismiss="modal" class="btn btn-warning pull-right">Close</button>
-                  </div>
-              </form>
-          </div>
+      <div class="col-xs-6">
+        <div id="logbox">
+            <form id="signUpForm" method="post">
+                <h1>Create an Account</h1>
+                <input id="email" name="email" type="email" placeholder="Email address" class="input pass"/>
+                <input id="password" name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input id="password2" name="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                <div class="widthMax centerFa btn-group">
+                  <button type="submit" class="btn btn-primary pull-left">Sign me up!</button>                  
+                  <i id="faSpinnerSignUp" class="faSpinSignUp fa fa-spinner fa-3x fa-spin"></i>
+                  <button data-dismiss="modal" class="btn btn-warning pull-right">Close</button>
+                </div>
+            </form>
         </div>
-      </div> 
+    </div>
+</div> 
     </div>
   </div>
 </nav>

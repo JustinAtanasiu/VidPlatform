@@ -90,6 +90,7 @@ define([
     },
     signUp: function (e) {
       e.preventDefault()
+      $("#faSpinnerSignUp").removeClass('faSpinSignUp')
       var username = $('#email').val()
       var password = md5.hash($('#password').val())
       var checkUser = new CheckUserModel({username: username})
@@ -110,6 +111,7 @@ define([
             'email': 'Invalid email.'
           })
         }
+        $("#faSpinnerSignUp").addClass('faSpinSignUp')
       })
     }
   })
