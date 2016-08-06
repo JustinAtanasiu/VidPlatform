@@ -233,3 +233,7 @@ i#faSpinnerForgotPass {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.zIndexOnElement {
+    z-index: 10;
+}
