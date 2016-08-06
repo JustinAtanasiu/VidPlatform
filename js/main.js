@@ -41,14 +41,14 @@ requirejs.config({
 });
 
 requirejs(["app"], function (App) {
-  "use strict";
-    
+  'use strict';
+
   App.init();
 });
 
 requirejs.onError = function (err) {
-  "use strict";
-    
+  'use strict';
+
   alert(err.message);
 };
 

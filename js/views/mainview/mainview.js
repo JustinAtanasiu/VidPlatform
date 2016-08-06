@@ -9,13 +9,11 @@ define([
   'text!../../../templates/mainview/mainview.html'
 ], function ($, _, Backbone, md5, jqueryvalidator, mainviewTemplate) {
   'use strict'
-  
+
   var UserModel = Backbone.Model.extend({
     idAttribute: '_id',
 
     initialize: function () {
-      var that = this
-
       $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         options.crossDomain = {
           crossDomain: true
@@ -23,13 +21,11 @@ define([
       })
     },
     urlRoot: 'http://localhost:7211/api/signUp'
-  })  
-  
-  var checkUserModel = Backbone.Model.extend({
-    idAttribute: '_id',
-     initialize: function () {
-      var that = this
+  })
 
+  var CheckUserModel = Backbone.Model.extend({
+    idAttribute: '_id',
+    initialize: function () {
       $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         options.crossDomain = {
           crossDomain: true
@@ -37,13 +33,11 @@ define([
       })
     },
     urlRoot: 'http://localhost:7211/api/checkUsers'
-  })  
-  
-  var loginUserModel = Backbone.Model.extend({
-    idAttribute: '_id',
-     initialize: function () {
-      var that = this
+  })
 
+  var LoginUserModel = Backbone.Model.extend({
+    idAttribute: '_id',
+    initialize: function () {
       $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         options.crossDomain = {
           crossDomain: true
@@ -52,74 +46,71 @@ define([
     },
     urlRoot: 'http://localhost:7211/api/authenticate'
   })
-  
+
   var MainviewView = Backbone.View.extend({
     events: {
       'submit #signUpForm': 'signUp',
       'click #toggleSideNav': 'toggleSideNav',
       'submit #login-nav': 'login'
     },
-    login: function(e) {
-      e.preventDefault();
+    login: function (e) {
+      e.preventDefault()
       var username = $('#exampleInputEmail2').val()
       var password = md5.hash($('#exampleInputPassword2').val())
-      var loginUser = new loginUserModel({username: username, password: password})
+      var loginUser = new LoginUserModel({username: username, password: password})
       var promise = loginUser.save()
-      $.when(promise).then(function(resp){
-        if(resp.success){
+      $.when(promise).then(function (resp) {
+        if (resp.success) {
           e.stopPropagation()
-          $('.dropdown').removeClass('open');
-        }
-        else{
-           var validator2 = $('#login-nav').validate();
-            validator2.showErrors({
-            "exampleInputPassword2": "Wrong credentials."
-          });;
+          $('.dropdown').removeClass('open')
+        } else {
+          var validator2 = $('#login-nav').validate()
+          validator2.showErrors({
+            'exampleInputPassword2': 'Wrong credentials.'
+          })
         }
       })
     },
     render: function () {
       var template = _.template(mainviewTemplate)
       this.$el.html(template({
-        
+
       }))
       return this
     },
     toggleSideNav: function () {
-      var mySidenav = document.getElementById("mySidenav")
-      if (document.getElementById("mySidenav").classList.contains('openedSideNav')) {
-        document.getElementById("mySidenav").classList.remove('openedSideNav');
-        mySidenav.style.width = "0px"
+      var mySidenav = document.getElementById('mySidenav')
+      if (document.getElementById('mySidenav').classList.contains('openedSideNav')) {
+        document.getElementById('mySidenav').classList.remove('openedSideNav')
+        mySidenav.style.width = '0px'
       } else {
-        document.getElementById("mySidenav").classList.add('openedSideNav');
-        mySidenav.style.width = "250px"
+        document.getElementById('mySidenav').classList.add('openedSideNav')
+        mySidenav.style.width = '250px'
       }
     },
     signUp: function (e) {
-      e.preventDefault();
-      var username = $('#email').val()            
+      e.preventDefault()
+      var username = $('#email').val()
       var password = md5.hash($('#password').val())
-      var checkUser = new checkUserModel({username: username})
+      var checkUser = new CheckUserModel({username: username})
       var promise = checkUser.save()
-      $.when(promise).then(function(resp) {
-        if(resp.status === 200){
+      $.when(promise).then(function (resp) {
+        if (resp.status === 200) {
           var newUser = new UserModel({ username: username, password: password })
-          newUser.save()          
+          newUser.save()
           $('#signUpModal').modal('hide')
         } else if (resp.status === 400) {
-          var validator = $('#signUpForm').validate();
+          var validator = $('#signUpForm').validate()
           validator.showErrors({
-            "email": "User already exists with this email."
-          });;
-        } else if (resp.status === 404){
-          var validator = $('#signUpForm').validate();
+            'email': 'User already exists with this email.'
+          })
+        } else if (resp.status === 404) {
+          var validator = $('#signUpForm').validate()
           validator.showErrors({
-            "email": "Invalid email."
-          });;
-        }       
-      });          
-      
-      
+            'email': 'Invalid email.'
+          })
+        }
+      })
     }
   })
 

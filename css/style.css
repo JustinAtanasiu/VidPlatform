@@ -1,6 +1,6 @@
 body,html{
-    height: 100%;
-  }
+  height: 100%;
+}
 
 .grayNavbar {
   background-color: #F2F2F2;
@@ -22,39 +22,39 @@ body,html{
   
 /* start of CSS for side menu */
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 51px;
-    left: 0;
-    background-color: #F2F2F2;
-    border: solid #C0C4C4;
-    border-width: 1px;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 15px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 51px;
+  left: 0;
+  background-color: #F2F2F2;
+  border: solid #C0C4C4;
+  border-width: 1px;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 15px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #9d9d9d;
-    display: block;
-    transition: 0.3s
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #9d9d9d;
+  display: block;
+  transition: 0.3s;
 }
 
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+  color: #f1f1f1;
 }
 
 .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
 }
 
 @media screen and (max-height: 450px) {
@@ -63,120 +63,135 @@ body,html{
 }
 
 .navbar-brand {
-    float: none
+  float: none
 }
 /* end of CSS for side menu */
  
 #login-dp{
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow: hidden;
-    background-color: rgba(255,255,255,.8);
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow: hidden;
+  background-color: rgba(255,255,255,.8);
 }
+
 #login-dp .help-block{
-    font-size: 12px    
+  font-size: 12px    
 }
+
 #login-dp .bottom{
-    background-color: rgba(255,255,255,.8);
-    border-top: 1px solid #ddd;
-    clear: both;
-    padding: 14px;
+  background-color: rgba(255,255,255,.8);
+  border-top: 1px solid #ddd;
+  clear: both;
+  padding: 14px;
 }
+
 #login-dp .social-buttons{
-    margin: 12px 0    
+  margin: 12px 0    
 }
+
 #login-dp .social-buttons a{
-    width: 49%;
+  width: 49%;
 }
+
 #login-dp .form-group {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
+
 .btn-fb{
-    color: #fff;
-    background-color: #3b5998;
+  color: #fff;
+  background-color: #3b5998;
 }
+
 .btn-fb:hover{
-    color: #fff;
-    background-color: #496ebc 
+  color: #fff;
+  background-color: #496ebc;
 }
+
 .btn-tw{
-    color: #fff;
-    background-color: #55acee;
+  color: #fff;
+  background-color: #55acee;
 }
+
 .btn-tw:hover{
-    color: #fff;
-    background-color: #59b5fa;
+  color: #fff;
+  background-color: #59b5fa;
 }
+
 @media(max-width:768px){
-    #login-dp{
-        background-color: inherit;
-        color: #fff;
-    }
-    #login-dp .bottom{
-        background-color: inherit;
-        border-top: 0 none;
-    }
+  #login-dp{
+    background-color: inherit;
+    color: #fff;
+  }
+  #login-dp .bottom{
+    background-color: inherit;
+    border-top: 0 none;
+  }
 }
 
 .signUpContainer {
-      display: -webkit-flex;
-      display: flex;
-      height: 100%;
-  }
+  display: -webkit-flex;
+  display: flex;
+  height: 100%;
+}
 
-  #logbox {
+#logbox {
+  padding: 10px;
+  margin: 50px auto;
+  width: 340px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
 
-      padding: 10px;
-      margin: 50px auto;
-      width: 340px;
-      background-color: #fff;
-      -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-      -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-  }
+h1 {
+  text-align: center;
+  font-size: 175%;
+  color: #757575;
+  font-weight: 300;
+}
 
-  h1 {
-      text-align: center;
-      font-size: 175%;
-      color: #757575;
-      font-weight: 300;
-  }
+h1, input {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
 
-  h1, input {
-      font-family: "Open Sans", Helvetica, sans-serif;
-  }
+.input {
+  width: 75%;
+  height: 50px;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+}
 
-  .input {
-      width: 75%;
-      height: 50px;
-      display: block;
-      margin: 0 auto 15px;
-      padding: 0 15px;
-      border: none;
-      border-bottom: 2px solid #ebebeb;
-  }
-  .input:focus {
-      outline: none;
-      border-bottom-color: #3CC !important;
-  }
-  .input:hover {
-      border-bottom-color: #dcdcdc;
-  }
-  .input:invalid {
-      box-shadow: none;
-  }
+.input:focus {
+  outline: none;
+  border-bottom-color: #3CC !important;
+}
 
-  .pass:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 1000px white inset;
-  }
+.input:hover {
+  border-bottom-color: #dcdcdc;
+}
+
+.input:invalid {
+  box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
 .widthMax {
   width: 100%;
 }
+
 .dropdown-menu.fade {
   display: block;
   opacity: 0;
   pointer-events: none;
 }
+
 /*fade pentru dropdown*/
 .open > .dropdown-menu.fade {
   pointer-events: auto;
