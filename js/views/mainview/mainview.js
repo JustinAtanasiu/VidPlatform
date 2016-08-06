@@ -91,6 +91,7 @@ define([
     signUp: function (e) {
       e.preventDefault()
       $("#faSpinnerSignUp").removeClass('faSpinSignUp')
+      $(".blackOverlay").removeClass('faSpinSignUp')
       var username = $('#email').val()     
       if($('#password').val() !== $('#password2').val()){
          var validator = $('#signUpForm').validate()
@@ -98,6 +99,7 @@ define([
             'password2': "Password fields didn't match."
           })
           $("#faSpinnerSignUp").addClass('faSpinSignUp')
+          $(".blackOverlay").addClass('faSpinSignUp')
           return true
       }
       if($('#password').val().length<6){
@@ -106,6 +108,7 @@ define([
             'password': 'Password must have at least 6 characters.'
           })
           $("#faSpinnerSignUp").addClass('faSpinSignUp')
+          $(".blackOverlay").addClass('faSpinSignUp')
           return true
       }
       var password = md5.hash($('#password').val())
@@ -128,6 +131,7 @@ define([
           })
         }
         $("#faSpinnerSignUp").addClass('faSpinSignUp')
+        $(".blackOverlay").addClass('faSpinSignUp')
       })
     }
   })
