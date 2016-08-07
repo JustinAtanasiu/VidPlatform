@@ -47,7 +47,7 @@ define([
     urlRoot: 'http://localhost:7211/api/authenticate'
   })
   
-  var forgotPassModel = Backbone.Model.extend({
+  var ForgotPassModel = Backbone.Model.extend({
     idAttribute: '_id',
     initialize: function () {
       $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
@@ -57,6 +57,18 @@ define([
       })
     },
     urlRoot: 'http://localhost:7211/api/forgotPassword'
+  })
+  
+  var LoginWithFb = Backbone.Model.extend({
+    idAttribute: '_id',
+    initialize: function () {
+      $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+        options.crossDomain = {
+          crossDomain: true
+        }
+      })
+    },
+    urlRoot: 'http://localhost:7211/api/auth/facebook'
   })
 
   var MainviewView = Backbone.View.extend({
@@ -81,7 +93,7 @@ define([
       $.when(promise).then(function (resp) {
         if (resp.success) {
           e.stopPropagation()
-          $('.dropdown').removeClass('open')
+          window.location = 'http://localhost:8083/user/' + resp.token //trebuie codat asta
         } else {
           var validator2 = $('#login-nav').validate()
           validator2.showErrors({
@@ -93,8 +105,9 @@ define([
     forgotPass: function (e) {
       e.preventDefault();
       $("#faSpinnerForgotPass").removeClass('faSpinSignUp')
+      $("#forgotPassModal").addClass('zIndexOnElement')
       var email = $('#emailForgotPass').val();
-      var forgotPass = new forgotPassModel({email: email})
+      var forgotPass = new ForgotPassModel({email: email})
       var promise = forgotPass.save()        
       $('#resetPassMessage').removeClass('hide')
       $('#emailForgotPass').addClass('hide')     
@@ -108,7 +121,8 @@ define([
           $('#resetPassMessage').text('An unexpected error occured. Please try again later.') 
         }
         //invalid email
-        $("#faSpinnerForgotPass").addClass('faSpinSignUp')
+        $("#faSpinnerForgotPass").addClass('faSpinSignUp')        
+        $("#forgotPassModal").removeClass('zIndexOnElement')
           $('#emailForgotPass').val('')
       })  
     },      
@@ -145,7 +159,7 @@ define([
     signUp: function (e) {
       e.preventDefault()
       $("#faSpinnerSignUp").removeClass('faSpinSignUp')
-      $("#signUpModal").removeClass('zIndexOnElement')
+      $("#signUpModal").addClass('zIndexOnElement')
       var username = $('#email').val()     
       if($('#password').val() !== $('#password2').val()){
          var validator = $('#signUpForm').validate()
@@ -153,7 +167,7 @@ define([
             'password2': "Password fields didn't match."
           })
           $("#faSpinnerSignUp").addClass('faSpinSignUp')
-          $("#signUpModal").addClass('zIndexOnElement')
+          $("#signUpModal").removeClass('zIndexOnElement')
           return true
       }
       if($('#password').val().length<6){
@@ -162,7 +176,7 @@ define([
             'password': 'Password must have at least 6 characters.'
           })
           $("#faSpinnerSignUp").addClass('faSpinSignUp')
-          $("#signUpModal").addClass('zIndexOnElement')
+          $("#signUpModal").removeClass('zIndexOnElement')
           return true
       }
       var password = md5.hash($('#password').val())
@@ -185,7 +199,7 @@ define([
           })
         }
         $("#faSpinnerSignUp").addClass('faSpinSignUp')
-        $("#signUpModal").addClass('zIndexOnElement')
+        $("#signUpModal").removeClass('zIndexOnElement')
       })
     }
   })

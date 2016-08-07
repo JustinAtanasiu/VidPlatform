@@ -19,6 +19,11 @@ define([
 
         mainView = new MainView()
         this.show(mainView)
+      },
+      '_=_': function(){
+        if (window.location.hash && window.location.hash == '#_=_') {
+          window.location.hash = '';
+        }
       }
       /* '(:dashboard)(/:minDate)(/:maxDate)': function (dashboard, minDate, maxDate) {
         var dashboardView = new DashboardView({
